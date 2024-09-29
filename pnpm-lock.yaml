@@ -15,6 +15,7 @@ specifiers:
   '@types/supertest': ^2.0.11
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  dotenv: ^16.4.5
   eslint: ^8.0.1
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
@@ -39,6 +40,7 @@ dependencies:
   '@nestjs/core': 9.4.3_nkfbdjdayiiz77ppnsuvovks5m
   '@nestjs/platform-express': 9.4.3_vw2vky2jc6gkm6gj7lzrgmojyi
   '@nestjs/typeorm': 10.0.2_qy6edqshhpo2o7rrwoglfhxqge
+  dotenv: 16.4.5
   firebase-admin: 12.5.0
   mysql2: 3.11.3
   reflect-metadata: 0.1.14
