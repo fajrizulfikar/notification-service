@@ -3,9 +3,14 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FirebaseModule } from './firebase/firebase.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ cache: true }), FirebaseModule],
+  imports: [
+    ConfigModule.forRoot({ cache: true, isGlobal: true }),
+    FirebaseModule,
+    DatabaseModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
