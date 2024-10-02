@@ -10,7 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         type: 'mysql',
-        host: 'localhost',
+        host: configService.get<string>('DB_HOST'),
         port: 3306,
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
