@@ -1,12 +1,13 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
+import { FirebaseService } from 'src/firebase/firebase.service';
 
 @Controller('notification')
 export class NotificationController {
-  constructor() {}
+  constructor(private readonly firebaseService: FirebaseService) {}
 
   @EventPattern('notification.fcm')
-  handleFcmMessage(
+  async handleFcmMessage(
     @Payload()
     data: {
       identifier: string;
@@ -16,9 +17,20 @@ export class NotificationController {
     },
   ) {
     if (this.isValidMessage(data)) {
-      const { identifier, type, deviceId, text } = data;
+      const { deviceId, text } = data;
 
-      console.log('Received notification:', identifier, type, deviceId, text);
+      const message = {
+        token: deviceId,
+        webpush: {
+          notification: {
+            title: 'Incoming message',
+            body: text,
+          },
+        },
+      };
+
+      const response = await this.firebaseService.sendPushNotification(message);
+      console.log('response', response);
     }
   }
 

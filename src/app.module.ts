@@ -6,6 +6,7 @@ import { DatabaseModule } from './database/database.module';
 import { RmqModule } from './rmq/rmq.module';
 import { NotificationService } from './notification/notification.service';
 import { NotificationController } from './notification/notification.controller';
+import { FirebaseService } from './firebase/firebase.service';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { NotificationController } from './notification/notification.controller';
     // DatabaseModule,
     RmqModule.register({ name: 'NOTIFICATION_SERVICE' }),
   ],
-  providers: [AppService, NotificationService],
+  providers: [AppService, NotificationService, FirebaseService],
   controllers: [NotificationController],
 })
 export class AppModule {}
