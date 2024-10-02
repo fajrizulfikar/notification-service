@@ -11,7 +11,7 @@ import { NotificationController } from './notification/notification.controller';
   imports: [
     ConfigModule.forRoot({ cache: true, isGlobal: true }),
     // FirebaseModule,
-    DatabaseModule,
+    // DatabaseModule,
     RmqModule.register({ name: 'NOTIFICATION_SERVICE' }),
   ],
   providers: [AppService, NotificationService],
