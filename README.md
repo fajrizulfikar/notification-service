@@ -26,23 +26,20 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
-
-```bash
-$ pnpm install
-```
-
 ## Running the app
-
-```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+1. put .env files in the root project
+2. run app with this command: `docker compose up`
+3. test rmq case via Docker CLI e.g:
+```
+docker exec -it rabbitmq rabbitmqadmin --username=user --password=password publish exchange=amq.default routing_key=notification.device payload='{
+  "pattern": "notification.fcm",
+  "data": {
+    "identifier": "fcm-message-id",
+    "type": "device",
+    "deviceId": "string",
+    "text": "Notification message"
+  }
+}'
 ```
 
 ## Test
