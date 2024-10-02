@@ -31,7 +31,7 @@
 2. run app with this command: `docker compose up`
 3. test rmq case via Docker CLI e.g:
 ```
-docker exec -it rabbitmq rabbitmqadmin --username=user --password=password publish exchange=amq.default routing_key=notification.device payload='{
+docker exec -it rabbitmq rabbitmqadmin --username=user --password=password publish exchange=amq.default routing_key=notification.fcm payload='{
   "pattern": "notification.fcm",
   "data": {
     "identifier": "fcm-message-id",
