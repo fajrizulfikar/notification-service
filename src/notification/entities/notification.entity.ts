@@ -5,12 +5,9 @@ export class Notification {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
-  token: string;
-
   @Column()
-  status: string;
+  identifier: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  createdAt: Date;
+  deliverAt: Date;
 }
