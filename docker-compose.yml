@@ -20,7 +20,7 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: mysql
+      - DB_HOST=db
     env_file:
       - .env
 
