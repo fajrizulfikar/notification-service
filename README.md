@@ -28,8 +28,9 @@
 
 ## Running the app
 1. put .env files in the root project
-2. run app with this command: `docker compose up`
-3. test rmq case via Docker CLI e.g:
+2. run external tools with this command: `docker compose up`
+3. run this app with this command: `pnpm start:dev`
+4. test rmq case via Docker CLI e.g:
 ```
 docker exec -it rabbitmq rabbitmqadmin --username=user --password=password publish exchange=amq.default routing_key=notification.fcm payload='{
   "pattern": "notification.fcm",
