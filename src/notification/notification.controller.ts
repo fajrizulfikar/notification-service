@@ -15,8 +15,19 @@ export class NotificationController {
       text: string;
     },
   ) {
-    const { identifier, type, deviceId, text } = data;
+    if (this.isValidMessage(data)) {
+      const { identifier, type, deviceId, text } = data;
 
-    console.log('Received notification:', identifier, type, deviceId, text);
+      console.log('Received notification:', identifier, type, deviceId, text);
+    }
+  }
+
+  isValidMessage(msg: any): boolean {
+    return (
+      typeof msg.identifier === 'string' &&
+      typeof msg.type === 'string' &&
+      typeof msg.deviceId === 'string' &&
+      typeof msg.text === 'string'
+    );
   }
 }
